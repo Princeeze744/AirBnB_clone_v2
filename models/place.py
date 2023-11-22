@@ -76,3 +76,11 @@ class Place(BaseModel, Base):
                     for amenity in storage.all(Amenity).values()
                     if amenity.place_id == self.id]
             return self.amenity_ids
+
+        @amenities.setter
+        def amenities(self, obj):
+            from models.amenity import Amenity
+            """Setter attribute"""
+            if type(obj) is not Amenity:
+                return
+            self.amenity_ids.append(obj)
