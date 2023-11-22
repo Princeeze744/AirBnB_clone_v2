@@ -23,3 +23,4 @@ class Amenity(BaseModel, Base):
                 back_populates='amenities')
     else:
         name = ""
+        place_id = ""
