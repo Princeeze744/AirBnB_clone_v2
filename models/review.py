@@ -24,7 +24,9 @@ class Review(BaseModel, Base):
         place_id = Column(String(60), ForeignKey('places.id'), nullable=False)
         user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
         place = relationship(
-                "Place")
+                'Place',
+                cascade='all, delete-orphan',
+                backref='reviews')
     else:
         text = ""
         place_id = ""
